@@ -27,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FD3C5CF281A5D18000A3D8D /* PlaceTag 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PlaceTag 2.xcdatamodel"; sourceTree = "<group>"; };
 		18D775BD22AD944300AE281E /* PlaceTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D775C022AD944300AE281E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D775C222AD944300AE281E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -461,9 +462,10 @@
 		3055671624CEB849000F621C /* PlaceTag.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0FD3C5CF281A5D18000A3D8D /* PlaceTag 2.xcdatamodel */,
 				3055671724CEB849000F621C /* PlaceTag.xcdatamodel */,
 			);
-			currentVersion = 3055671724CEB849000F621C /* PlaceTag.xcdatamodel */;
+			currentVersion = 0FD3C5CF281A5D18000A3D8D /* PlaceTag 2.xcdatamodel */;
 			path = PlaceTag.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

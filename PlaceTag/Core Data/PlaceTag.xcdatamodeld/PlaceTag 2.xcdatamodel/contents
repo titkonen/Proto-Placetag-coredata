@@ -2,12 +2,13 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Place" representedClassName="Place" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="feeling" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String" defaultValueString="Untitled"/>
     </entity>
     <elements>
-        <element name="Place" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Place" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

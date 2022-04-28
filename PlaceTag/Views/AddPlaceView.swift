@@ -17,7 +17,7 @@ struct AddPlaceView: View {
 	@Environment(\.presentationMode) private var presentationMode
 
   // MARK: Properties for StatusControl
-  @State private var name: String = ""
+  @State private var feeling: String = ""
   @State private var favoriteColor: Color = .green
   @State private var mood: Mood = .happy
   
@@ -41,41 +41,32 @@ struct AddPlaceView: View {
           )
         }
         
-        Button(
-          action: {
-            Place.create(title: title, note: note, image: image, context: viewContext)
-            presentationMode.wrappedValue.dismiss()
-          },
-          label: {
-            HStack {
-              Image(systemName: "square.and.arrow.down.fill")
-              Text("Save Place")
-            }
-          }
-        )
-        .buttonStyle(ActionButtonBackgroundStyle())
-        
         Text("Set your status:")
-        
-        StatusControl(name: $name, favoriteColor: $favoriteColor, mood: $mood)
-        
-        StatusIcon(name: name, favoriteColor: favoriteColor, mood: mood)
+        StatusControl(feeling: $feeling, favoriteColor: $favoriteColor, mood: $mood)
+        StatusIcon(feeling: feeling, favoriteColor: favoriteColor, mood: mood)
           .padding()
         
       } /// .Form
+      
+      Button(
+        action: {
+          Place.create(title: title, note: note, image: image, feeling: feeling, context: viewContext)
+          presentationMode.wrappedValue.dismiss()
+        },
+        label: {
+          HStack {
+            Image(systemName: "square.and.arrow.down.fill")
+            Text("Save Place")
+          }
+        }
+      )
+      .buttonStyle(ActionButtonBackgroundStyle())
       .navigationBarTitle("Add Place")
       .sheet(isPresented: $shouldShowImagePicker) {
         ImagePicker(image: $image)
       }
-        
-      
-      
-      } /// .VStack
-      
-      
-      
+    } /// .VStack
 } /// .body
-    
 
 	@ViewBuilder
   private func makeImageForChoosePhotosButton() -> some View {
@@ -106,13 +97,13 @@ struct AddPlaceView_Previews: PreviewProvider {
 
 // MARK: Component StatusControl
 struct StatusControl: View {
-  @Binding var name: String
+  @Binding var feeling: String
   @Binding var favoriteColor: Color
   @Binding var mood: Mood
   
   var body: some View {
     VStack {
-      TextField("Name", text: $name)
+      TextField("Feeling", text: $feeling)
         .textFieldStyle(RoundedBorderTextFieldStyle())
       
       ColorPicker("Favorite Color", selection: $favoriteColor)
@@ -130,14 +121,14 @@ struct StatusControl: View {
 
 // MARK: Component StatusIcon
 struct StatusIcon: View {
-  let name: String
+  let feeling: String
   let favoriteColor: Color
   let mood: Mood
   
   var body: some View {
     VStack {
       Text(mood.rawValue)
-      Text(name)
+      Text(feeling)
         .foregroundColor(.white)
     }
     .font(.largeTitle)
@@ -146,30 +137,3 @@ struct StatusIcon: View {
     .cornerRadius(12)
   }
 }
-
-
-
-
-//    ZStack(alignment: .bottomTrailing) {
-//      Form {
-//        Section(header: Text("Title")) {
-//          TextField("Insert place title here", text: $title)
-//            .autocapitalization(.words)
-//        }
-//        Section(header: Text("Notes")) {
-//          TextField("Insert notes about the place here", text: $note)
-//            .autocapitalization(.sentences)
-//        }
-//        Section {
-//          Button(
-//            action: {
-//              shouldShowImagePicker.toggle()
-//            },
-//            label: makeImageForChoosePhotosButton
-//          )
-//        }
-//
-//      } /// .Form
-      
-
-//        Text("Set your status:")
