@@ -4,6 +4,7 @@ struct PlaceDetailView: View {
 	let title: String?
 	let subtitle: String?
 	let image: UIImage?
+  let feeling: String?
 
 	var body: some View {
 		ScrollView {
@@ -25,6 +26,11 @@ struct PlaceDetailView: View {
 						.font(.title)
 						.foregroundColor(.secondary)
 				}
+        feeling.map {
+          Text($0)
+            .font(.body)
+            .foregroundColor(.secondary)
+        }
 			}
 			.multilineTextAlignment(.center)
 			.padding()
@@ -38,7 +44,8 @@ struct PlaceDetailView_Previews: PreviewProvider {
 		PlaceDetailView(
 			title: "San Francisco",
 			subtitle: "Golden Gate was awesome",
-			image: UIImage(systemName: "photo")
+      image: UIImage(systemName: "photo"),
+      feeling: "I was happy today"
 		)
 	}
 }

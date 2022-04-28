@@ -35,7 +35,9 @@ struct PlacesListView: View {
 		return PlaceDetailView(
 			title: place.title,
 			subtitle: place.note,
-			image: place.image?.uiImage)
+      image: place.image?.uiImage,
+      feeling: place.feeling
+    )
 	}
 
 	private func makeItemView(from place: Place) -> PlaceItemView {
